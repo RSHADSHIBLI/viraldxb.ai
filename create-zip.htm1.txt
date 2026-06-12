@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تحميل المشروع</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body style="text-align:center; padding:50px; font-family:Arial;">
+    <h1>🎣 تحميل مولد الخطافات</h1>
+    <button onclick="download()" style="padding:20px 40px; font-size:20px; background:purple; color:white; border:none; border-radius:10px; cursor:pointer;">
+        📥 اضغط هنا للتحميل
+    </button>
+    <p id="msg"></p>
+
+    <script>
+        async function download() {
+            document.getElementById('msg').textContent = 'جاري التحميل...';
+            
+            const zip = new JSZip();
+            
+            // الملفات مباشرة بدون مجلدات فرعية
+            zip.file('index.html', document.getElementById('html_code').textContent);
+            zip.file('style.css', document.getElementById('css_code').textContent);
+            zip.file('main.js', document.getElementById('js_code').textContent);
+            
+            const blob = await zip.generateAsync({type: 'blob'});
+            saveAs(blob, 'مولد_الخطافات.zip');
+            document.getElementById('msg').textContent = '✅ تم التحميل!';
+        }
+    </script>
+
+    <!-- الكود مخفي هنا -->
+    <script type="text/template" id="html_code">
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الخطافات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🎣 مولد الخطافات</h1>
+    <div class="box">
+        <label>نوع المحتوى:</label>
+        <select id="type">
+            <option>توعوي</option>
+            <option>ترفيهي</option>
+            <option>تسويقي</option>
+            <option>تحفيزي</option>
+        </select>
+        <label>الموضوع:</label>
+        <input id="topic" placeholder="مثال: التسويق">
+        <button onclick="generate()">✨ توليد</button>
+        <div id="result"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+    </script>
+
+    <script type="text/template" id="css_code">
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    text-align: center;
+    padding: 50px;
+    font-family: Arial;
+    color: white;
+}
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    color: black;
+    text-align: right;
+}
+label { display: block; margin: 10px 0 5px; font-weight: bold; }
+select, input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+button {
+    background: #764ba2;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover { background: #667eea; }
+#result { margin-top: 20px; }
+.hook {
+    background: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border-right: 4px solid #764ba2;
+}
+    </script>
+
+    <script type="text/template" id="js_code">
+const hooks = {
+    'توعوي': ['هل تعلم أن TOPIC يغير حياتك؟', 'سر TOPIC الذي لا يعرفه 99%'],
+    'ترفيهي': ['تحدي TOPIC 😱', 'جربت TOPIC لمدة يوم كامل'],
+    'تسويقي': ['كيف تربح من TOPIC؟', 'استراتيجية TOPIC للمبتدئين'],
+    'تحفيزي': ['من الصفر لـ TOPIC', 'قصتي الملهمة مع TOPIC']
+};
+
+function generate() {
+    const type = document.getElementById('type').value;
+    const topic = document.getElementById('topic').value || 'هذا المجال';
+    
+    const list = hooks[type];
+    let html = '';
+    list.forEach(h => {
+        html += '<div class="hook">' + h.replace('TOPIC', topic) + '</div>';
+    });
+    
+    document.getElementById('result').innerHTML = html;
+    
+    // حفظ تلقائي
+    localStorage.setItem('lastHooks', html);
+}
+
+// استعادة آخر نتائج
+window.onload = function() {
+    const saved = localStorage.getItem('lastHooks');
+    if (saved) document.getElementById('result').innerHTML = saved;
+};
+    </script>
+</body>
+</html>
