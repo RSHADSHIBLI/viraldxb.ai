@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Share2, 
@@ -34,40 +35,40 @@ const LuxuriousAIStudio = () => {
       dir: 'rtl',
       brand: 'VIRALDXB',
       heroTag: 'الجيل الثالث من محركات الـ AI',
-      heroTitle: 'اصنع واقعك السينمائي في دبي',
-      heroDesc: 'منصة احترافية تدمج بين تصوير الدرون، تغيير الملابس بالذكاء الاصطناعي، والهندسة الصوتية المحيطة.',
-      uploadPhoto: 'ارفع صورتك (AI Face Swap)',
-      chooseLocation: 'موقع التصوير المرجعي',
-      chooseQuality: 'معالجة الإضاءة والظلال',
-      wardrobe: 'الخزانة الرقمية (AI Wardrobe)',
-      audio: 'الموسيقى التصويرية والبيئة',
-      generateBtn: 'توليد الفيديو النهائي',
-      previewTitle: 'استوديو المعاينة الحيّة',
-      exportTitle: 'تصدير للمنصات العالمية',
-      galleryTitle: 'تحف المبدعين (Elite Gallery)',
-      galleryDesc: 'شاهد كيف حوّل المبدعون صورهم إلى لقطات سينمائية عالمية.',
-      tryStyle: 'تجربة هذا النمط',
+      heroTitle: 'اصنع واقعك السينמאי في دבי',
+      heroDesc: 'منصة احترافية تدمג بين تصوير الدرון، تغيير الملابس بالذكاء الاصطناعي، والهנדסה الصوتية المحيطة.',
+      uploadPhoto: 'ارفع صورتך (AI Face Swap)',
+      chooseLocation: 'מوقع التصوير המרגעי',
+      chooseQuality: 'מעالجת האדאה ואלזלאל',
+      wardrobe: 'אלחזאנה אלרקמיה (AI Wardrobe)',
+      audio: 'אלמוסיקה אלתצוירייה ואלביאה',
+      generateBtn: 'תוליד אלוידיאו אלנאהאי',
+      previewTitle: 'אסתוד'יו אלמעאינה אלחייה',
+      exportTitle: 'תצדיר למנצאת אלעאלמיה',
+      galleryTitle: 'תחף אלמבדעין (Elite Gallery)',
+      galleryDesc: 'שאהד כיף חול אלמבדעון צורהמ אלי לקטאת סינמאי עאלמיה.',
+      tryStyle: 'תג'רבה הד'א אלנמט',
       locations: {
-        burj: { name: 'قمة برج خليفة', desc: 'نزول رأسي من ارتفاع 828 متر مع تأثيرات رياح واقعية.' },
-        fountain: { name: 'نوافير دبي مول', desc: 'دوران 360 درجة مع مزامنة كاملة لحركة المياه.' }
+        burj: { name: 'קמת ברג' ח'ליפה', desc: 'נזול ראסי מן ארתפאע 828 מטר מע תאת'יראת ריאח ואקעיה.' },
+        fountain: { name: 'נואפיר דובאי מול', desc: 'דואראן 360 דרג'ה מע מזאמנה מלאה לחורקת אלמאי.' }
       },
       outfits: {
-        formal: 'بدلة رسمية / فستان سهرة',
-        traditional: 'زي وطني فاخر',
-        casual: 'أزياء عصرية (Casual)'
+        formal: 'בדלה רסמיה / פסתאן סהרה',
+        traditional: 'זי וטני פאח'ר',
+        casual: 'אזיאע עסריה (Casual)'
       },
       audios: {
-        epic: 'أوركسترا سينمائية',
-        ambient: 'أصوات طبيعية هادئة',
-        modern: 'إيقاعات دبي الحديثة'
+        epic: 'אורכסתרא סינמאי',
+        ambient: 'אצואת טביעיה האדאה',
+        modern: 'איקאעאת דובאי אלחדת'ה'
       },
       qualities: {
         cinematic: 'Golden Hour (4K)',
         standard: 'Blue Hour (HD)',
         vlog: 'Daylight (Vlog)'
       },
-      status: 'معالج NVIDIA H100 يعمل الآن...',
-      footer: '© 2026 VIRALDXB-AI. الخيار الأول للمشاهير وصناع المحتوى.'
+      status: 'מעאלו' NVIDIA H100 יעמל אלאן...',
+      footer: '© 2026 VIRALDXB-AI. אלח'יאר אלאול למשאהיר וצנאע אלמחתוי.'
     },
     en: {
       dir: 'ltr',
@@ -97,19 +98,6 @@ const LuxuriousAIStudio = () => {
       },
       audios: {
         epic: 'Cinematic Orchestra',
-        ambient: 'Natural Ambience',
-        modern: 'Modern Dubai Beats'
-      },
-      qualities: {
-        cinematic: 'Golden Hour (4K)',
-        standard: 'Blue Hour (HD)',
-        vlog: 'Daylight (Vlog)'
-      },
-      status: 'NVIDIA H100 Cluster Active...',
-      footer: '© 2026 VIRALDXB-AI. The Choice of Influencers.'
-    }
-  };
-
   const galleryItems = [
     { id: 1, name: 'Ahmed K.', location: 'Burj Khalifa', likes: '12.4K', views: '150K', style: 'Formal' },
     { id: 2, name: 'Sara L.', location: 'Dubai Fountain', likes: '8.9K', views: '92K', style: 'Heritage' },
@@ -117,7 +105,7 @@ const LuxuriousAIStudio = () => {
     { id: 4, name: 'Elena V.', location: 'Dubai Fountain', likes: '15.2K', views: '205K', style: 'Evening Gown' },
   ];
 
-  const current = t[lang];
+  const current = t[lang] as any;
 
   return (
     <div className="min-h-screen bg-[#020202] text-zinc-100 font-sans antialiased selection:bg-purple-500/30 overflow-x-hidden" dir={current.dir}>
@@ -190,9 +178,9 @@ const LuxuriousAIStudio = () => {
                        <Shirt size={14} /> {current.wardrobe}
                     </label>
                     <div className="space-y-2">
-                      {Object.entries(current.outfits).map(([id, label]) => (
+                      {Object.entries(current.outfits as Record<string, string>).map(([id, label]) => (
                         <button key={id} type="button" onClick={() => setSelectedOutfit(id)} className={`w-full p-4 rounded-2xl border text-start text-xs font-bold transition-all ${selectedOutfit === id ? 'bg-white text-black border-white' : 'bg-white/5 border-white/5 text-zinc-500 hover:border-white/10'}`}>
-                          {label}
+                          {label as string}
                         </button>
                       ))}
                     </div>
@@ -203,23 +191,13 @@ const LuxuriousAIStudio = () => {
                        <Music size={14} /> {current.audio}
                     </label>
                     <div className="space-y-2">
-                      {Object.entries(current.audios).map(([id, label]) => (
+                      {Object.entries(current.audios as Record<string, string>).map(([id, label]) => (
                         <button key={id} type="button" onClick={() => setSelectedAudio(id)} className={`w-full p-4 rounded-2xl border text-start text-xs font-bold transition-all ${selectedAudio === id ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-white/5 border-white/5 text-zinc-500 hover:border-white/10'}`}>
-                          {label}
+                          {label as string}
                         </button>
                       ))}
                     </div>
                   </div>
-                </div>
-
-                <button type="submit" className="group w-full py-7 bg-white text-black font-black rounded-[2rem] text-xl shadow-[0_20px_50px_rgba(255,255,255,0.1)] flex items-center justify-center gap-4 transition-all hover:bg-zinc-200 active:scale-95">
-                  {current.generateBtn}
-                  <ArrowRight size={24} className={`${lang === 'ar' ? 'rotate-180' : ''} group-hover:translate-x-2 transition-transform`} />
-                </button>
-              </form>
-            </div>
-          </div>
-
           {/* Preview & Export - 5 columns */}
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-white/[0.02] border border-white/[0.05] rounded-[3rem] p-8 md:p-10 sticky top-28">
@@ -320,3 +298,26 @@ const LuxuriousAIStudio = () => {
 };
 
 export default LuxuriousAIStudio;
+
+                </div>
+
+                <button type="submit" className="group w-full py-7 bg-white text-black font-black rounded-[2rem] text-xl shadow-[0_20px_50px_rgba(255,255,255,0.1)] flex items-center justify-center gap-4 transition-all hover:bg-zinc-200 active:scale-95">
+                  {current.generateBtn}
+                  <ArrowRight size={24} className={`${lang === 'ar' ? 'rotate-180' : ''} group-hover:translate-x-2 transition-transform`} />
+                </button>
+              </form>
+            </div>
+          </div>
+
+        ambient: 'Natural Ambience',
+        modern: 'Modern Dubai Beats'
+      },
+      qualities: {
+        cinematic: 'Golden Hour (4K)',
+        standard: 'Blue Hour (HD)',
+        vlog: 'Daylight (Vlog)'
+      },
+      status: 'NVIDIA H100 Cluster Active...',
+      footer: '© 2026 VIRALDXB-AI. The Choice of Influencers.'
+    }
+  };
